@@ -17,7 +17,7 @@ map.on('style.load', function() {
 
 	map.addSource("tom", {
    		"type": "geojson",
-    	"data": '../data/global-pop.json'
+    	"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/population.json'
   	});
 
 	map.addLayer({
