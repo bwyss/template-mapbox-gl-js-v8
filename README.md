@@ -1,5 +1,5 @@
-mapboxgl-template
-=================
+mapbox-gl-js template
+=====================
 
 Template mapboxgl project that renders a base map and some point data that has interactivity.
 
