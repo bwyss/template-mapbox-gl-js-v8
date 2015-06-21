@@ -121,27 +121,15 @@ map.on('style.load', function() {
             console.log(features);
           	if (err) throw err;
           		document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
-                //var data = [];
+                // Hard coded attributes list
                 var keys = ["QWKHOME", "QPOVERTY", "GM_ECONOMY", "AV_ECONOMY", "QFEMALE", "QAGEDEP", "QDISABLED", "QINDIGINOU", "QHRENTERS", "QNOHEALTHI", "QNONATID", "QNOSTATREG", "QGRPHMDOM", "PPUNIT", "GM_VPOP", "AV_VPOP", "AV_EDU", "GM_EDU1", "AV_EDU1", "GM_SVI", "AV_SVI", "LOG_AV_SVI"];
                 var values = [];
-                var name = 'foobar';
-                //data.push(features[0].properties);
-                /*
-                for(var k in features[0].properties) {
-                    keys.push(k);
-                    values.push(features[0].properties[k]);
-                }
-                */
+                var name = 'Hover over the chart!';
+
                 for (var i = 0; i < keys.length; i++) {
                     var tmp = keys[i];
                     values.push(features[0].properties[tmp]);
                 }
-                console.log('keys:');
-                console.log(keys);
-                console.log('values:');
-                console.log(values);
-                console.log('keys:');
-
                 chart(keys, values, name);
 
       		});
@@ -237,8 +225,8 @@ map.on('style.load', function() {
         arcs.append("svg:path")
             .attr("fill", function(d, i) { return color(i); } )
             .attr("d", arc);
-
-        var legend = d3.select("#dialog").append("svg")
+/*
+        var legend = d3.select("#features").append("svg")
             .attr("class", "legend-hazus")
             .attr("width", 400)
             .attr("height", 40)
@@ -257,6 +245,7 @@ map.on('style.load', function() {
             .attr("y", 30)
             .attr("dy", ".35em")
             .text(function(d) { return d.label; });
+*/
     }
 
 });
