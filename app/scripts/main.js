@@ -18,7 +18,7 @@ map.on('style.load', function() {
 
 	map.addSource("tom", {
    		"type": "geojson",
-    	"data": '../data/losses-poly.json'
+    	"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/losses-poly.json'
   	});
   /*
 // style for point data
