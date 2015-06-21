@@ -9,8 +9,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmVuamFtaW4td3lzcyIsImEiOiJVcm5FdEw4In0.S8HRI
 map = new mapboxgl.Map({
     container: 'map',
     style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
-    center: [0.360550, -78.091930],
-    zoom: 5,
+    center: [-1.83, -78.183],
+    zoom: 5.5,
 });
 
 map.on('style.load', function() {
@@ -117,7 +117,7 @@ map.on('style.load', function() {
     map.on('click', function(e) {
       	map.featuresAt(e.point, { radius : 6}, function(err, features) {
           	if (err) throw err;
-          		document.getElementById('features').innerHTML = JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
+          		document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
       		});
   	});
 
