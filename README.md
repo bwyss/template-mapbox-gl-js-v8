@@ -7,4 +7,8 @@ This is a work in progress...
 
 The project in created with Yeoman, in order to use it withing that context check out: http://www.justinmccandless.com/blog/Getting+a+Yeoman+App+Working+on+a+New+Machine+after+Cloning
 
-[Demo](http://jsfiddle.net/ugemxj4t/)
+[Point data Demo](http://jsfiddle.net/ugemxj4t/)
+
+[Polygon data Demo](http://jsfiddle.net/q9waw7pp/)
+
+
