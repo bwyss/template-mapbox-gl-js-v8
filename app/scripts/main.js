@@ -18,7 +18,7 @@ map.on('style.load', function() {
 
 	map.addSource("tom", {
    		"type": "geojson",
-    	"data": '../data/losses-poly.json'
+    	"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/losses-poly.json'
   	});
   /*
 // style for point data
@@ -116,9 +116,6 @@ map.on('style.load', function() {
 
     map.on('click', function(e) {
       	map.featuresAt(e.point, { radius : 6}, function(err, features) {
-
-            console.log('features:');
-            console.log(features);
           	if (err) throw err;
           		document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
                 // Hard coded attributes list
@@ -131,7 +128,6 @@ map.on('style.load', function() {
                     values.push(features[0].properties[tmp]);
                 }
                 chart(keys, values, name);
-
       		});
   	});
 
