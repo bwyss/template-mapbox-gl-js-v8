@@ -9,6 +9,6 @@ The project in created with Yeoman, in order to use it withing that context chec
 
 [Point data Demo](http://jsfiddle.net/ugemxj4t/)
 
-[Polygon data Demo](http://jsfiddle.net/vo2rnga8/)
+[Polygon data Demo](http://jsfiddle.net/zcpxkbdt/)
 
 
