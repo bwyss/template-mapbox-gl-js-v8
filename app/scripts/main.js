@@ -46,9 +46,10 @@ map.on('style.load', function() {
         'type': 'fill',
         'source': 'tom',
         'interactive': true,
+        'text-field': '{DPA_DESPAR}',
         'paint': {
             'fill-color': '#ffffb2',
-            'fill-opacity': 0.8,
+            //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': [
@@ -63,7 +64,7 @@ map.on('style.load', function() {
         'interactive': true,
         'paint': {
             'fill-color': '#fecc5c',
-            'fill-opacity': 0.8,
+            //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': ['all',['>', 'GM_EDU', 0.49], ['<=', 'GM_EDU', 0.815]]
@@ -76,7 +77,7 @@ map.on('style.load', function() {
         'interactive': true,
         'paint': {
             'fill-color': '#fd8d3c',
-            'fill-opacity': 0.8,
+            //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': ['all',['>', 'GM_EDU', 0.815], ['<=', 'GM_EDU', 1.139]]
@@ -89,7 +90,7 @@ map.on('style.load', function() {
         'interactive': true,
         'paint': {
             'fill-color': '#f03b20',
-            'fill-opacity': 0.8,
+            //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': ['all',['>', 'GM_EDU', 1.139], ['<=', 'GM_EDU', 1.46]]
@@ -102,7 +103,7 @@ map.on('style.load', function() {
         'interactive': true,
         'paint': {
             'fill-color': '#bd0026',
-            'fill-opacity': 0.8,
+            //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': [
@@ -110,12 +111,29 @@ map.on('style.load', function() {
         ]
     });
 
+    map.addLayer({
+        'id': 'foobar-label',
+        'type': 'symbol',
+        'source': 'tom',
+        'layout': {
+            //'symbol-placement':'center',
+            'text-field': '{DPA_DESPAR}',
+            'text-font': 'DIN Offc Pro Bold, Arial Unicode MS Regular',
+            'text-max-size': 22,
+            //'text-max-width': 14,
+            //'text-letter-spacing': 0.1,
+            'text-padding': 4,
+            //'text-anchor': 'center',
+        },
+    });
 
     console.log('map:');
     console.log(map);
 
     map.on('click', function(e) {
       	map.featuresAt(e.point, { radius : 6}, function(err, features) {
+            console.log('features:');
+            console.log(features);
           	if (err) throw err;
           		document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
                 // Hard coded attributes list
