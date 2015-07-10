@@ -25,11 +25,144 @@ map.on('style.load', function() {
 });
 
 
+var selAttribute = 'QHHNOBATH';
+
+$('#breakSelection').change(function() {
+    if ($('#breakSelection').val() == '1') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+
+        } catch (e) {
+            // continue
+        }
+
+        // set Attribute scheme
+        selAttribute = 'GM_EDU';
+        createLayer();
+        var filter = ['<=', selAttribute, 0.49];
+        map.setFilter ('foobar1', filter);
+        //map.update();
+        //map.render();
+    }
+    else if ($('#breakSelection').val() == '2') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+        } catch (e) {
+            // continue
+        }
+
+        // set Attribute scheme
+        selAttribute = 'GM_INFRAST';
+        createLayer();
+        var filter = ['<=', selAttribute, 0.49];
+        map.setFilter ('foobar1', filter);
+        //map.update();
+        //map.render();
+    }
+    else if ($('#breakSelection').val() == '3') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+        } catch (e) {
+            // continue
+        }
+
+        // set Attribute scheme
+        selAttribute = 'QDNOELECTR';
+        createLayer();
+        var filter = ['<=', selAttribute, 0.49];
+        map.setFilter ('foobar1', filter);
+        //map.update();
+        //map.render();
+    }
+    else if ($('#breakSelection').val() == '4') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+        } catch (e) {
+            // continue
+        }
+
+        // set Attribute scheme
+        selAttribute = 'QDNOWATER';
+        createLayer();
+        var filter = ['<=', selAttribute, 0.49];
+        map.setFilter ('foobar1', filter);
+        //map.update();
+        //map.render();
+    }
+    else if ($('#breakSelection').val() == '5') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+        } catch (e) {
+            // continue
+        }
+
+        // set Attribute scheme
+        selAttribute = 'QHHNOBATH';
+        createLayer();
+        var filter = ['<=', selAttribute, 0.49];
+        map.setFilter ('foobar1', filter);
+        //map.update();
+        //map.render();
+    }
+    else if ($('#breakSelection').val() == '6') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+        } catch (e) {
+            // continue
+        }
+
+        // set Attribute scheme
+        selAttribute = 'HOUDENSITY';
+        createLayer();
+        var filter = ['<=', selAttribute, 0.49];
+        map.setFilter ('foobar1', filter);
+        //map.update();
+        //map.render();
+    }
+});
 
 
 // Collor options
 var colorsPalRed = ['#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026'];
 var colorsPalBlue = ['#f1eef6', '#bdc9e1', '#74a9cf', '#2b8cbe', '#045a8d'];
+var colorsPalGreen = ['#edf8fb', '#b2e2e2', '#66c2a4', '#2ca25f', '#006d2c'];
+var colorsPalBrown = ['#ffffd4', '#fed98e', '#fe9929', '#d95f0e', '#993404'];
 var colorsPal = colorsPalRed;
 
 $('#colorSelection').change(function() {
@@ -40,6 +173,7 @@ $('#colorSelection').change(function() {
             map.removeLayer('foobar3');
             map.removeLayer('foobar4');
             map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
             map.render();
 
         } catch (e) {
@@ -49,12 +183,9 @@ $('#colorSelection').change(function() {
         // set color scheme
         colorsPal = colorsPalRed;
         createLayer();
-        map.update();
+        //map.update();
     }
     else if ($('#colorSelection').val() === 'blue') {
-        console.log(map);
-        colorsPal = colorsPalBlue;
-
         try {
             map.removeLayer('foobar1');
             map.removeLayer('foobar2');
@@ -72,9 +203,47 @@ $('#colorSelection').change(function() {
         colorsPal = colorsPalBlue;
         createLayer();
     }
+    else if ($('#colorSelection').val() === 'green') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+
+        } catch (e) {
+            // continue
+        }
+
+        // set color scheme
+        colorsPal = colorsPalGreen;
+        createLayer();
+    }
+        else if ($('#colorSelection').val() === 'brown') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+
+        } catch (e) {
+            // continue
+        }
+
+        // set color scheme
+        colorsPal = colorsPalBrown;
+        createLayer();
+    }
 });
 
 function createLayer () {
+    console.log('colorsPal:');
+    console.log(colorsPal);
 
 /*
 // style for point data
@@ -110,7 +279,7 @@ function createLayer () {
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': [
-            '<=', 'GM_EDU', 0.49
+            '<=', selAttribute, 0.49
         ]
     });
 
@@ -124,7 +293,7 @@ function createLayer () {
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
-        'filter': ['all',['>', 'GM_EDU', 0.49], ['<=', 'GM_EDU', 0.815]]
+        'filter': ['all',['>', selAttribute, 0.49], ['<=', selAttribute, 0.815]]
     });
 
     map.addLayer({
@@ -137,7 +306,7 @@ function createLayer () {
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
-        'filter': ['all',['>', 'GM_EDU', 0.815], ['<=', 'GM_EDU', 1.139]]
+        'filter': ['all',['>', selAttribute, 0.815], ['<=', selAttribute, 1.139]]
     });
 
     map.addLayer({
@@ -150,7 +319,7 @@ function createLayer () {
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
-        'filter': ['all',['>', 'GM_EDU', 1.139], ['<=', 'GM_EDU', 1.46]]
+        'filter': ['all',['>', selAttribute, 1.139], ['<=', selAttribute, 1.46]]
     });
 
     map.addLayer({
@@ -164,10 +333,10 @@ function createLayer () {
             //'fill-outline-color': '#CCCCFF'
         },
         'filter': [
-            '>=', 'GM_EDU', 1.46
+            '>=', selAttribute, 1.46
         ]
     });
-
+/*
     map.addLayer({
         'id': 'foobar-label',
         'type': 'symbol',
@@ -183,14 +352,12 @@ function createLayer () {
             //'text-anchor': 'center',
         },
     });
-
+*/
     console.log('map:');
     console.log(map);
 
     map.on('click', function(e) {
       	map.featuresAt(e.point, { radius : 6}, function(err, features) {
-            console.log('features:');
-            console.log(features);
           	if (err) throw err;
           		document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
                 // Hard coded attributes list
