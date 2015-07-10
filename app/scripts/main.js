@@ -16,11 +16,67 @@ map = new mapboxgl.Map({
 map.on('style.load', function() {
 
 
-	map.addSource("tom", {
-   		"type": "geojson",
-    	"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/losses-poly.json'
-  	});
-  /*
+    map.addSource("tom", {
+        "type": "geojson",
+        "data": "../data/losses-poly.json"
+        //"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/losses-poly.json'
+    });
+
+});
+
+
+
+
+// Collor options
+var colorsPalRed = ['#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026'];
+var colorsPalBlue = ['#f1eef6', '#bdc9e1', '#74a9cf', '#2b8cbe', '#045a8d'];
+var colorsPal = colorsPalRed;
+
+$('#colorSelection').change(function() {
+    if ($('#colorSelection').val() === 'red') {
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.render();
+
+        } catch (e) {
+            // continue
+        }
+
+        // set color scheme
+        colorsPal = colorsPalRed;
+        createLayer();
+        map.update();
+    }
+    else if ($('#colorSelection').val() === 'blue') {
+        console.log(map);
+        colorsPal = colorsPalBlue;
+
+        try {
+            map.removeLayer('foobar1');
+            map.removeLayer('foobar2');
+            map.removeLayer('foobar3');
+            map.removeLayer('foobar4');
+            map.removeLayer('foobar5');
+            map.removeLayer('foobar-label');
+            map.render();
+
+        } catch (e) {
+            // continue
+        }
+
+        // set color scheme
+        colorsPal = colorsPalBlue;
+        createLayer();
+    }
+});
+
+function createLayer () {
+
+/*
 // style for point data
 	map.addLayer({
         'id': 'foobar',
@@ -40,6 +96,7 @@ map.on('style.load', function() {
     });
 */
 
+
 // style for polygon data
     map.addLayer({
         'id': 'foobar1',
@@ -48,7 +105,7 @@ map.on('style.load', function() {
         'interactive': true,
         'text-field': '{DPA_DESPAR}',
         'paint': {
-            'fill-color': '#ffffb2',
+            'fill-color': colorsPal[0],
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
@@ -63,7 +120,7 @@ map.on('style.load', function() {
         'source': 'tom',
         'interactive': true,
         'paint': {
-            'fill-color': '#fecc5c',
+            'fill-color': colorsPal[1],
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
@@ -76,7 +133,7 @@ map.on('style.load', function() {
         'source': 'tom',
         'interactive': true,
         'paint': {
-            'fill-color': '#fd8d3c',
+            'fill-color': colorsPal[2],
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
@@ -89,7 +146,7 @@ map.on('style.load', function() {
         'source': 'tom',
         'interactive': true,
         'paint': {
-            'fill-color': '#f03b20',
+            'fill-color': colorsPal[3],
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
@@ -102,7 +159,7 @@ map.on('style.load', function() {
         'source': 'tom',
         'interactive': true,
         'paint': {
-            'fill-color': '#bd0026',
+            'fill-color': colorsPal[4],
             //'fill-opacity': 0.8,
             //'fill-outline-color': '#CCCCFF'
         },
@@ -262,5 +319,5 @@ map.on('style.load', function() {
 */
     }
 
-});
+};
 
