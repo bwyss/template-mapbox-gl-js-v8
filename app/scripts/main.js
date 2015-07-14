@@ -16,8 +16,9 @@ map = new mapboxgl.Map({
 map.on('style.load', function() {
 
 
-    map.addSource("tom", {
+    map.addSource("ecuador", {
         "type": "geojson",
+        //"data": "http://localhost:7777/v2/tiles/{z}/{x}/{y}.pbf"
         "data": "../data/losses-poly.json"
         //"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/losses-poly.json'
     });
@@ -258,7 +259,7 @@ function createLayer () {
 	map.addLayer({
         'id': 'foobar',
         'type': 'symbol',
-        'source': 'tom',
+        'source': 'ecuador',
         'interactive': true,
     	'layout': {
     	  	'icon-image': '{marker-symbol}-12',
@@ -280,7 +281,7 @@ function createLayer () {
     map.addLayer({
         'id': 'foobar1',
         'type': 'fill',
-        'source': 'tom',
+        'source': 'ecuador',
         'interactive': true,
         'text-field': '{DPA_DESPAR}',
         'paint': {
@@ -296,7 +297,7 @@ function createLayer () {
     map.addLayer({
         'id': 'foobar2',
         'type': 'fill',
-        'source': 'tom',
+        'source': 'ecuador',
         'interactive': true,
         'paint': {
             'fill-color': colorsPal[1],
@@ -309,7 +310,7 @@ function createLayer () {
     map.addLayer({
         'id': 'foobar3',
         'type': 'fill',
-        'source': 'tom',
+        'source': 'ecuador',
         'interactive': true,
         'paint': {
             'fill-color': colorsPal[2],
@@ -322,7 +323,7 @@ function createLayer () {
     map.addLayer({
         'id': 'foobar4',
         'type': 'fill',
-        'source': 'tom',
+        'source': 'ecuador',
         'interactive': true,
         'paint': {
             'fill-color': colorsPal[3],
@@ -335,7 +336,7 @@ function createLayer () {
     map.addLayer({
         'id': 'foobar5',
         'type': 'fill',
-        'source': 'tom',
+        'source': 'ecuador',
         'interactive': true,
         'paint': {
             'fill-color': colorsPal[4],
@@ -351,7 +352,7 @@ function createLayer () {
     map.addLayer({
         'id': 'foobar-label',
         'type': 'symbol',
-        'source': 'tom',
+        'source': 'ecuador',
         'layout': {
             //'symbol-placement':'center',
             'text-field': '{REGION}',
@@ -429,10 +430,10 @@ function createLayer () {
             .text( "TOTAL" )
             .attr("y", -10);
 
-        var textBottom = vis.append("text")
+        var textBotecuador = vis.append("text")
             .attr("dy", ".35em")
             .style("text-anchor", "middle")
-            .attr("class", "textBottom")
+            .attr("class", "textBotecuador")
             .text(total.toFixed(2))
             .attr("y", 10);
 
@@ -465,7 +466,7 @@ function createLayer () {
                             .attr("d", arcOver);
                         textTop.text(d3.select(this).datum().data.label)
                             .attr("y", -10);
-                        textBottom.text(d3.select(this).datum().data.value.toFixed(3))
+                        textBotecuador.text(d3.select(this).datum().data.value.toFixed(3))
                             .attr("y", 10);
                     })
                     .on("mouseout", function(d) {
@@ -474,7 +475,7 @@ function createLayer () {
                             .attr("d", arc);
                         textTop.text( "TOTAL" )
                             .attr("y", -10);
-                        textBottom.text(total.toFixed(2));
+                        textBotecuador.text(total.toFixed(2));
                     });
 
         arcs.append("svg:path")
