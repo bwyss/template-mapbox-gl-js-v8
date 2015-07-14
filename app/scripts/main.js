@@ -22,9 +22,12 @@ map.on('style.load', function() {
         //"data": 'https://raw.githubusercontent.com/bwyss/template-mapbox-gl-js-v8/master/app/data/losses-poly.json'
     });
 
+    // create the thematic layer on page load
+    createLayer();
+
 });
 
-
+// Setup the attribute filters
 var selAttribute = 'QHHNOBATH';
 
 $('#breakSelection').change(function() {
@@ -158,12 +161,13 @@ $('#breakSelection').change(function() {
 });
 
 
-// Collor options
+// Set up the color options
 var colorsPalRed = ['#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026'];
 var colorsPalBlue = ['#f1eef6', '#bdc9e1', '#74a9cf', '#2b8cbe', '#045a8d'];
 var colorsPalGreen = ['#edf8fb', '#b2e2e2', '#66c2a4', '#2ca25f', '#006d2c'];
 var colorsPalBrown = ['#ffffd4', '#fed98e', '#fe9929', '#d95f0e', '#993404'];
 var colorsPal = colorsPalRed;
+
 
 $('#colorSelection').change(function() {
     if ($('#colorSelection').val() === 'red') {
@@ -241,12 +245,16 @@ $('#colorSelection').change(function() {
     }
 });
 
+// Create the layer
 function createLayer () {
     console.log('colorsPal:');
     console.log(colorsPal);
 
 /*
-// style for point data
+//////////////////////////
+// style for point data //
+//////////////////////////
+
 	map.addLayer({
         'id': 'foobar',
         'type': 'symbol',
@@ -265,8 +273,10 @@ function createLayer () {
     });
 */
 
+////////////////////////////
+// style for polygon data //
+////////////////////////////
 
-// style for polygon data
     map.addLayer({
         'id': 'foobar1',
         'type': 'fill',
@@ -337,13 +347,14 @@ function createLayer () {
         ]
     });
 /*
+    // text lables
     map.addLayer({
         'id': 'foobar-label',
         'type': 'symbol',
         'source': 'tom',
         'layout': {
             //'symbol-placement':'center',
-            'text-field': '{DPA_DESPAR}',
+            'text-field': '{REGION}',
             'text-font': 'DIN Offc Pro Bold, Arial Unicode MS Regular',
             'text-max-size': 22,
             //'text-max-width': 14,
@@ -356,14 +367,19 @@ function createLayer () {
     console.log('map:');
     console.log(map);
 
+    // mouse click event
     map.on('click', function(e) {
       	map.featuresAt(e.point, { radius : 6}, function(err, features) {
+            console.log('features:');
+            console.log(features);
           	if (err) throw err;
-          		document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
+                $('#name').empty();
+                $('#name').append('District: ' + features[0].properties.REGION);
+          		//document.getElementById('features').innerHTML = 'Data value from JSON: ' + JSON.stringify(features[0].properties.LOG_AV_SVI, null, 2);
                 // Hard coded attributes list
                 var keys = ["QWKHOME", "QPOVERTY", "GM_ECONOMY", "AV_ECONOMY", "QFEMALE", "QAGEDEP", "QDISABLED", "QINDIGINOU", "QHRENTERS", "QNOHEALTHI", "QNONATID", "QNOSTATREG", "QGRPHMDOM", "PPUNIT", "GM_VPOP", "AV_VPOP", "AV_EDU", "GM_EDU1", "AV_EDU1", "GM_SVI", "AV_SVI", "LOG_AV_SVI"];
                 var values = [];
-                var name = 'Hover over the chart!';
+                var name = '';
 
                 for (var i = 0; i < keys.length; i++) {
                     var tmp = keys[i];
@@ -374,11 +390,12 @@ function createLayer () {
   	});
 
 
-    ////////////////////////////////////////////
-    /////////////// Pie Chart //////////////////
-    ////////////////////////////////////////////
+    /////////////////////////////////////////
+    //////////// D3.js Pie Chart ////////////
+    /////////////////////////////////////////
 
     function chart(keys, values, name) {
+        $('#features').empty();
         var w = 400,
             h = 400,
             r = 180,
@@ -464,6 +481,7 @@ function createLayer () {
             .attr("fill", function(d, i) { return color(i); } )
             .attr("d", arc);
 /*
+        // Chart legend
         var legend = d3.select("#features").append("svg")
             .attr("class", "legend-hazus")
             .attr("width", 400)

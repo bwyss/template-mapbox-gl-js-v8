@@ -23,27 +23,26 @@
 
 
   <div id='map' class="myMap"></div>
-  <div>
+  <div>Select Map Color Scheme:
     <select id="colorSelection">
-      <option >Select a color scheme</option>
-      <option value="red">Red color scheme</option>
-      <option value="blue">Blue color scheme</option>
-      <option value="green">Green color scheme</option>
-      <option value="brown">Brown color scheme</option>
+      <option selected value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="brown">Brown</option>
     </select>
   </div>
-    <div>
+    <div>Select Social Vulnerability Indicator:
     <select id="breakSelection">
-      <option >Select a theme attribute</option>
-      <option value="1">GM_EDU attribute</option>
-      <option value="2">GM_INFRAST attribute</option>
-      <option value="3">QDNOELECTR attribute</option>
-      <option value="4">QDNOWATER attribute</option>
-      <option value="5">QHHNOBATH attribute</option>
-      <option value="6">HOUDENSITY attribute</option>
+      <option selected value="1">Composite index for infrastructure</option>
+      <option value="2">Composite index for infratsructure</option>
+      <option value="3">Percent Housing with no Electricity</option>
+      <option value="4">Percent Housing with no Water</option>
+      <option value="5">Percent of Households with no Bathroom</option>
+      <option value="6">Housing Density</option>
     </select>
   </div>
-  <div id='features'>Click on the map</div>
+  <center><h2 id="name"></h2></center>
+  <center id='features'></center>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
