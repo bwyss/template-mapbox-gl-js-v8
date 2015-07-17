@@ -9,6 +9,6 @@ The project in created with Yeoman, in order to use it withing that context chec
 
 [Point data Demo](http://jsfiddle.net/ugemxj4t/)
 
-[Polygon data Demo](http://jsfiddle.net/01b97w0L/)
+[Simple polygon data Demo](http://jsfiddle.net/01b97w0L/)
 
-
+This app is using a tilelive server for the protocol buffers [found here] (https://github.com/bwyss/TileLive-Server)
