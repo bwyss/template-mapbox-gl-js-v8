@@ -1,0 +1,30 @@
+{
+  "version": 7,
+  "constants": {
+    "@background": "#808080",
+    "@road": "#000000"
+  },
+  "sources": {
+    "bob": {
+      "type": "vector",
+      "tiles": [
+        "http://localhost:7777/v2/tiles/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 0,
+      "maxzoom": 12
+    }
+  },
+  "layers": [
+  {
+    "id": "eq-simple",
+    "type": "fill",
+    "source": "bob",
+    "source-layer": "eq-simple",
+    "paint": {
+      "fill-color": "#8786e0"
+    }
+  }]
+}
+
+
+
