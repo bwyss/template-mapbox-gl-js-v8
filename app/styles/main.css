@@ -1,0 +1,18 @@
+section {
+    width: 90%;
+    height: 800px;
+    background: white;
+    margin: auto;
+    padding: 10px;
+}
+div#map {
+    width: 65%;
+    height: 800px;
+    background: white;
+    float: left;
+}
+div#rightSide {
+    margin-left: 1%;
+    height: 800px;
+    background: white;
+}
